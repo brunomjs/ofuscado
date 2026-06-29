@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Enterprise School System - Secured</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background: linear-gradient(135deg, #0f172a, #1e293b); color: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .dashboard { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 24px; width: 100%; max-width: 480px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); text-align: center; }
+        .logo-container { margin-bottom: 24px; }
+        .logo-icon { font-size: 48px; background: linear-gradient(135deg, #38bdf8, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; color: #f1f5f9; }
+        p { color: #94a3b8; font-size: 14px; margin-bottom: 32px; }
+        .input-group { text-align: left; margin-bottom: 20px; }
+        label { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: #38bdf8; margin-bottom: 8px; font-weight: 600; }
+        input { width: 100%; background: #0f172a; border: 1px solid #334155; padding: 14px 16px; border-radius: 12px; color: #fff; font-size: 16px; transition: all 0.3s; }
+        input:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+        .btn-submit { width: 100%; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; position: relative; overflow: hidden; }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4); }
+        .btn-submit:active { transform: translateY(0); }
+        .spinner { width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; animation: spin 1s ease-in-out infinite; display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .result-box { margin-top: 28px; padding: 20px; border-radius: 16px; font-size: 15px; font-weight: 500; display: none; transform: translateY(10px); opacity: 0; transition: all 0.4s ease; }
+        .success { background: rgba(22, 163, 74, 0.15); border: 1px solid rgba(34, 197, 94, 0.3); color: #4ade80; }
+        .danger { background: rgba(220, 38, 38, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; }
+        .show { display: block; transform: translateY(0); opacity: 1; }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        <div class="logo-container">
+            <span class="logo-icon">☕</span>
+        </div>
+        <h1>Java Backend Controller</h1>
+        <p>Insira as notas da API para validar a aprovação do aluno.</p>
+        
+        <div class="input-group">
+            <label for="nota1">Nota do Teste Escrito</label>
+            <input type="number" id="nota1" placeholder="Ex: 14.5" min="0" max="20" step="0.1">
+        </div>
+        
+        <div class="input-group">
+            <label for="nota2">Nota do Trabalho Prático</label>
+            <input type="number" id="nota2" placeholder="Ex: 17.0" min="0" max="20" step="0.1">
+        </div>
+
+        <button id="btnProcessar" class="btn-submit">
+            <span class="spinner" id="loadingSpinner"></span>
+            <span id="btnText">Compilar e Processar</span>
+        </button>
+
+        <div id="resultado" class="result-box"></div>
+    </div>
+
+    <!-- CÓDIGO JAVASCRIPT TOTALMENTE OFUSCADO -->
+    <script>
+        const _0x5a1b = ["\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x44\x64", "btnProcessar", "addEventListener", "click", "nota1", "value", "nota2", "resultado", "loadingSpinner", "btnText", "className", "result-box danger show", "innerText", "Por favor, introduza notas válidas de 0 a 20.", "style", "display", "block", "A ligar à JVM...", "result-box", "none", "Compilar e Processar", "result-box success show", "innerHTML", "<strong>Status: APROVADO</strong><br>A média final calculada pelo Java foi de ", " valores.", "<strong>Status: REPROVADO</strong><br>A média final de ", " está abaixo do limite mínimo."];
+        const _0x3f2a = function(_0x1b5c) { return _0x5a1b[_0x1b5c]; };
+        document.getElementById(_0x3f2a(1))[_0x3f2a(2)](_0x3f2a(3), function() {
+            const _0x1a2b = parseFloat(document.getElementById(_0x3f2a(4))[_0x3f2a(5)]);
+            const _0x2b3c = parseFloat(document.getElementById(_0x3f2a(6))[_0x3f2a(5)]);
+            const _0x3c4d = document.getElementById(_0x3f2a(7));
+            const _0x4d5e = document.getElementById(_0x3f2a(8));
+            const _0x5e6f = document.getElementById(_0x3f2a(9));
+            if (isNaN(_0x1a2b) || isNaN(_0x2b3c) || _0x1a2b < 0 || _0x1a2b > 20 || _0x2b3c < 0 || _0x2b3c > 20) {
+                _0x3c4d[_0x3f2a(10)] = _0x3f2a(11);
+                _0x3c4d[_0x3f2a(12)] = _0x3f2a(13);
+                return;
+            }
+            _0x4d5e[_0x3f2a(14)][_0x3f2a(15)] = _0x3f2a(16);
+            _0x5e6f[_0x3f2a(12)] = _0x3f2a(17);
+            _0x3c4d[_0x3f2a(10)] = _0x3f2a(18);
+            setTimeout(function() {
+                _0x4d5e[_0x3f2a(14)][_0x3f2a(15)] = _0x3f2a(19);
+                _0x5e6f[_0x3f2a(12)] = _0x3f2a(20);
+                const _0x6f7a = (_0x1a2b + _0x2b3c) / 2;
+                if (_0x6f7a >= 9.5) {
+                    _0x3c4d[_0x3f2a(10)] = _0x3f2a(21);
+                    _0x3c4d[_0x3f2a(22)] = _0x3f2a(23) + _0x6f7a.toFixed(2) + _0x3f2a(24);
+                } else {
+                    _0x3c4d[_0x3f2a(10)] = _0x3f2a(11);
+                    _0x3c4d[_0x3f2a(22)] = _0x3f2a(25) + _0x6f7a.toFixed(2) + _0x3f2a(26);
+                }
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
